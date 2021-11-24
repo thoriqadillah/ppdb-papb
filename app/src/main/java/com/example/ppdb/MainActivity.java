@@ -6,8 +6,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String a;
-    //test
+    public String thoriq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
