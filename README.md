@@ -4,7 +4,7 @@
 * Atthoriq Adillah Wicaksana (195150400111034)
 * Sandrian Yulian Firmansyah N (195150401111010)
 * Muhammad Fikri Almas (195150400111033)
-* Aisha Edna Alicia Sanyoto (195150401111xxx)
+* Aisha Edna Alicia Sanyoto (195150401111001)
 * Marshananda Aqila Kurniawan (195150400111032)
 
 ## Clone project 
