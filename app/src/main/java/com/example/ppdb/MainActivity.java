@@ -17,9 +17,13 @@ import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
+<<<<<<< HEAD
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btTes;
+=======
+    public String thoriq;
+>>>>>>> d881ff51e4fd3071ce679380ccbcc6bb114db06f
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
