@@ -4,37 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inputNilai">
+    android:background="@color/bluebg"
+    android:visibility="visible"
+    tools:context=".inputNilai"
+    tools:visibility="visible">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arrow___left_2"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="32dp" />
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow___left_2" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="NILAI"
         android:textColor="@color/black"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="84dp" />
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="409dp"
         android:layout_height="600dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="131dp"
-        android:fillViewport="true">
+        android:layout_marginTop="17dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -44,232 +58,283 @@
                     android:id="@+id/inputIpsUS"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="24dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="547dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa2"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
                     android:text="IPS"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="558dp" />
-
-                <Button
-                    android:id="@+id/btnImgSiswa2"
-                    android:layout_width="146dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/buttondesign"
-                    android:backgroundTint="@color/bluebtn"
-                    android:text="Unggah Ijasah"
-                    android:textSize="12sp"
-                    app:backgroundTint="@null"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="597dp" />
-
-                <TextView
-                    android:id="@+id/txvImgSiswa2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="14sp"
-                    tools:layout_editor_absoluteX="194dp"
-                    tools:layout_editor_absoluteY="610dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputIpsUS" />
 
                 <TextView
                     android:id="@+id/textView13"
                     android:layout_width="278dp"
                     android:layout_height="34dp"
+                    android:layout_marginBottom="100dp"
                     android:fontFamily="@font/roboto_italic"
                     android:text="Catatan : unggah foto format .jpg atau  .png maksimal 2mb"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="642dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.213"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/btnImgSiswa2"
+                    android:layout_width="146dp"
+                    android:layout_height="33dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/buttondesign"
+                    android:backgroundTint="@color/bluebtn"
+                    android:text="Unggah Ijasah"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toTopOf="@+id/textView13"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.106"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/txvImgSiswa2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="TextView"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.527"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btnImgSiswa2" />
 
                 <EditText
                     android:id="@+id/inputIpaUS"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="498dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputIpsUS"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
                     android:text="Matematika"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="407dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputMathUS" />
 
                 <TextView
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Nilai US"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="351dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputMathUS"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.089"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/textView11"
-                    android:layout_width="102dp"
-                    android:layout_height="51dp"
+                    android:layout_width="99dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="28dp"
                     android:text="Bahasa Indonesia"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="450dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputIndoUS" />
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="8dp"
                     android:text="IPA"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="508dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputIpaUS" />
 
                 <EditText
                     android:id="@+id/inputIndoUS"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="450dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputIpaUS"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <EditText
                     android:id="@+id/inputMathUS"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="407dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputIndoUS"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="12dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Nilai UN"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="26dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputMathUN"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.093"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="278dp"
                     android:layout_height="34dp"
+                    android:layout_marginBottom="24dp"
                     android:fontFamily="@font/roboto_italic"
                     android:text="Catatan : unggah foto format .jpg atau  .png maksimal 2mb"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="270dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/textView9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.229"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
                     android:id="@+id/btnImgSiswa"
                     android:layout_width="146dp"
                     android:layout_height="33dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/buttondesign"
                     android:backgroundTint="@color/bluebtn"
                     android:text="Unggah SKHUN"
                     android:textSize="12sp"
                     app:backgroundTint="@null"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="225dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/textView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.114"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/txvImgSiswa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:text="TextView"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="194dp"
-                    tools:layout_editor_absoluteY="238dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.552"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btnImgSiswa" />
 
                 <EditText
                     android:id="@+id/inputMathUN"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="83dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputIndoUN"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.973"
+                    app:layout_constraintStart_toEndOf="@+id/textView6" />
 
                 <EditText
                     android:id="@+id/inputIndoUN"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="125dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/inputIpaUN"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <EditText
                     android:id="@+id/inputIpaUN"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginBottom="24dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
-                    tools:layout_editor_absoluteX="159dp"
-                    tools:layout_editor_absoluteY="173dp" />
+                    app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
                     android:text="Matematika"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="82dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputMathUN" />
 
                 <TextView
                     android:id="@+id/textView7"
                     android:layout_width="98dp"
                     android:layout_height="50dp"
+                    android:layout_marginStart="28dp"
                     android:text="Bahasa Indonesia"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="126dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputIndoUN" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
                     android:text="IPA"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="185dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/inputIpaUN" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
