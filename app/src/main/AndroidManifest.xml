@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ppdb">
         <activity
+            android:name=".HalamanUtama"
+            android:exported="true" />
+        <activity
             android:name=".inputNilai"
             android:exported="true" />
         <activity
