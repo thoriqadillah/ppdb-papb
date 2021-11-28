@@ -12,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ppdb.model.Siswa;
-import com.example.ppdb.model.SiswaDao;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,7 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView txtKeLogin;
     EditText inpNamaLengkap, inpEmail, inpPassword;
 
-    SiswaDao siswaDao = new SiswaDao();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
+    DatabaseReference dbReference = db.getReference(Siswa.class.getSimpleName());
+
     Siswa siswa;
 
     @Override
@@ -42,12 +46,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void register(String namaLengkap, String email, String password) {
-        siswa = new Siswa(namaLengkap, email, password);
-        siswaDao.addSiswa(siswa).addOnSuccessListener(success -> {
-            Toast.makeText(this, "Pendaftaran berhasil, silahkan verifikasi email Anda dan Login", Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(failed -> {
-            Toast.makeText(this, ""+ failed.getMessage() +"", Toast.LENGTH_SHORT).show();
+    // Sistemnya nanti setelah daftar lewat firebase auth nanti ada id nya disitu. Nah, id tsb jadi id di realtime db nya.
+    // Jadi, kalo nanti mau update data, ngambil id siswanya dari FirebaseAuth.getCurrentUser().getUid() (mungkin). Habis itu update deh
+    // Challange lain mungkin join data siswa ke nilai sih. Semangat ndes
+    
+    public void register(Siswa siswa) {
+        firebaseAuth.createUserWithEmailAndPassword(siswa.getEmail(), siswa.getPassword()).addOnCompleteListener(register -> {
+            if (register.isSuccessful()) {
+                FirebaseUser userSiswa = firebaseAuth.getCurrentUser();
+
+                userSiswa.sendEmailVerification();
+
+                String siswaId = userSiswa.getUid();
+                siswa.setSiswaId(siswaId);
+
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+                // menambahkan data ke database
+                dbReference.child(siswaId).setValue(siswa).addOnSuccessListener(addSiswa -> {
+                    Toast.makeText(this, "Pendaftaran berhasil, silahkan verifikasi email Anda dan Login", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(failed -> {
+                    Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+
+        }).addOnFailureListener(fail -> {
+            Toast.makeText(this, "Error: " + fail.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -56,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String namaLengkap = inpNamaLengkap.getText().toString();
         String email = inpEmail.getText().toString();
         String password = inpPassword.getText().toString();
+        siswa = new Siswa(namaLengkap, email, password);
 
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
@@ -75,10 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (view.getId() == btnRegister.getId()) {
-            register(namaLengkap, email, password);
-
-            startActivity(intent);
-            finish();
+            register(siswa);
         }
 
         if (view.getId() == txtKeLogin.getId()) {

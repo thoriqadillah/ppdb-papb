@@ -1,8 +1,11 @@
 package com.example.ppdb.model;
 
+import java.util.HashMap;
+
 public class Siswa {
 
-    private String namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin;
+    private String siswaId, namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin;
+    private HashMap<String, String> hashMap = new HashMap<>();
 
     public Siswa() {}
 
@@ -10,6 +13,10 @@ public class Siswa {
         this.namaLengkap = namaLengkap;
         this.email = email;
         this.password = password;
+    }
+
+    public void setSiswaId(String siswaId) {
+        this.siswaId = siswaId;
     }
 
     public void setNamaLengkap(String namaLengkap) {
@@ -50,6 +57,10 @@ public class Siswa {
 
     public void setJenisKelamin(String jenisKelamin) {
         this.jenisKelamin = jenisKelamin;
+    }
+
+    public String getSiswaId() {
+        return siswaId;
     }
 
     public String getNamaLengkap() {
