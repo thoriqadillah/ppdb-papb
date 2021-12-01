@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+
+
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_halaman_utama.xml" value="0.22" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_input_nilai.xml" value="0.22" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_login.xml" value="0.10144927536231885" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_pengumuman.xml" value="0.22" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/activity_pengumuman2.xml" value="0.14221014492753623" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/header_sidebar.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android Studio/tugas akhir/ppdb-papb/app/src/main/res/layout/item_pengumuman.xml" value="0.14666666666666667" />
+
         <entry key="..\:/Kuliah/PAPB/ppdb/ppdb-papb/app/src/main/res/layout/activity_halaman_utama.xml" value="0.18541666666666667" />
         <entry key="..\:/Kuliah/PAPB/ppdb/ppdb-papb/app/src/main/res/layout/activity_input_nilai.xml" value="0.1734375" />
         <entry key="..\:/Kuliah/PAPB/ppdb/ppdb-papb/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -20,6 +32,7 @@
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/drawable/buttondesign.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/drawable/inputdesign.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/drawable/radiobuttondesign.xml" value="0.19166666666666668" />
+
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/activity_halaman_utama.xml" value="0.22" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/activity_input_nilai.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/activity_login.xml" value="0.17135416666666667" />
@@ -28,10 +41,17 @@
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/header_sidebar.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/item_pengumuman.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/menu/drawer_menu.xml" value="0.3333333333333333" />
+
+        <entry key="..\:/Users/Marshananda Aqila K/AndroidStudioProjects/ppdb/ppdb-papb/app/src/main/res/layout/activity_input_nilai.xml" value="0.3333333333333333" />
+
+        <entry key="..\:/dataDiri/ppdb-papb/app/src/main/res/layout/activity_datadiri.xml" value="0.1" />
+
+
+
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
