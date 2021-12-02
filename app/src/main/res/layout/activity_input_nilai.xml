@@ -62,7 +62,7 @@
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa2"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -82,11 +82,11 @@
                     android:id="@+id/textView13"
                     android:layout_width="278dp"
                     android:layout_height="34dp"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginBottom="32dp"
                     android:fontFamily="@font/roboto_italic"
                     android:text="Catatan : unggah foto format .jpg atau  .png maksimal 2mb"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/btnSimpan"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.213"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -126,7 +126,7 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/inputIpsUS"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -165,7 +165,7 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/inputIndoUS" />
+                    app:layout_constraintTop_toTopOf="@+id/inputBindoUS" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -180,14 +180,14 @@
                     app:layout_constraintTop_toTopOf="@+id/inputIpaUS" />
 
                 <EditText
-                    android:id="@+id/inputIndoUS"
+                    android:id="@+id/inputBindoUS"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="28dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/inputIpaUS"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -200,9 +200,9 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/inputIndoUS"
+                    app:layout_constraintBottom_toTopOf="@+id/inputBindoUS"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
@@ -269,22 +269,22 @@
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/inputIndoUN"
+                    app:layout_constraintBottom_toTopOf="@+id/inputBindoUN"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.973"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/textView6" />
 
                 <EditText
-                    android:id="@+id/inputIndoUN"
+                    android:id="@+id/inputBindoUN"
                     android:layout_width="220dp"
                     android:layout_height="35dp"
                     android:layout_marginEnd="28dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/inputIpaUN"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -297,7 +297,7 @@
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:paddingStart="16dp"
                     app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -322,7 +322,7 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/inputIndoUN" />
+                    app:layout_constraintTop_toTopOf="@+id/inputBindoUN" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -335,6 +335,18 @@
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/inputIpaUN" />
+
+                <Button
+                    android:id="@+id/btnSimpan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/buttondesign"
+                    android:text="Simpan"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
