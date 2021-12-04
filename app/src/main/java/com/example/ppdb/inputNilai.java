@@ -45,9 +45,11 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     EditText inputMathUN, inputBindoUN, inputIpaUN, inputMathUS, inputBindoUS, inputIpaUS, inputIpsUS;
     TextView txvSKHUN, txvIjasah;
     Button btnSimpan, btnSKHUN, btnIjasah;
-    private static final int RC_Take_Photo = 0;
-    private static final int RC_Take_From_Gallery = 1;
-    public Uri imageUri;
+    private static final int RC_SKHUN = 0;
+    private static final int RC_Ijasah = 1;
+    public Uri imageUriSKHUN;
+    public Uri imageUriIjasah;
+
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseDatabase db1 = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
@@ -75,7 +77,7 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
         inputBindoUS = findViewById(R.id.inputBindoUS);
         inputIpaUS = findViewById(R.id.inputIpaUS);
         inputIpsUS = findViewById(R.id.inputIpsUS);
-        txvSKHUN = findViewById(R.id.txvSKHUNname);
+        txvIjasah = findViewById(R.id.txvIjasahname);
 
         btnSimpan = findViewById(R.id.btnSimpan);
         btnSimpan.setOnClickListener(this);
@@ -92,19 +94,34 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         if(view.getId() == btnSimpan.getId()){
+            uploadPicture();
             nilai = new Nilai(inputMathUN.getText().toString(), inputBindoUN.getText().toString(),
                     inputIpaUN.getText().toString(), inputMathUS.getText().toString(),
                     inputBindoUS.getText().toString(), inputIpaUS.getText().toString(),
                     inputIpsUS.getText().toString());
+
+            dbReference1.child(userSiswa.getUid()).child("Nilai").push().setValue(nilai).addOnSuccessListener(addNilai -> {
+                Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener(failed -> {
+                Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
+            });
         }
-        dbReference1.child(userSiswa.getUid()).child("Nilai").push().setValue(nilai).addOnSuccessListener(addNilai -> {
-            Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
-        }).addOnFailureListener(failed -> {
-            Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
-        });
+
 
         if(view.getId() == btnSKHUN.getId()){
-            choosePicture();
+//            choosePicture();
+            Intent intent1 = new Intent();
+            intent1.setType("image/*");
+            intent1.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent1, RC_SKHUN);
+        }
+
+        if(view.getId() == btnIjasah.getId()){
+//            choosePicture();
+            Intent intent2 = new Intent();
+            intent2.setType("image/*");
+            intent2.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent2, RC_Ijasah);
         }
 
 //        if(view.getId() == btnIjasah.getId()){
@@ -124,27 +141,61 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void choosePicture() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
-    }
+//    private void choosePicture() {
+//        Intent intent = new Intent();
+//        intent.setType("image/*");
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(intent, 1);
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
-            imageUri = data.getData();
-            uploadPicture();
+//        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
+//            imageUri = data.getData();
+//            if (imageUri!=null){
+//
+//            }
+//            uploadPicture();
+//
+//        }
+        switch (requestCode){
+            case RC_SKHUN:
+                if(resultCode==RESULT_OK){
+                    imageUriSKHUN = data.getData();
+                    if(imageUriSKHUN!=null){
+                        txvSKHUN.setText("Berhasil terunggah");
+                    }else{
+                        Toast.makeText(inputNilai.this,
+                                "Gagal Terunggah",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                }
+                break;
+            case RC_Ijasah:
+                if(resultCode==RESULT_OK){
+                    imageUriIjasah = data.getData();
+                    if(imageUriIjasah!=null){
+                        txvIjasah.setText("Berhasil terunggah");
+                    }else{
+                        Toast.makeText(inputNilai.this,
+                                "Gagal Terunggah",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                }
+                break;
 
         }
     }
 
     private void uploadPicture() {
-        StorageReference SKHUNref = storageRef.child("SKHUN/image/" + userSiswa.getUid());
+        StorageReference SKHUNref = storageRef.child(userSiswa.getUid() + "/SKHUN/" + userSiswa.getUid());
+        StorageReference Ijasahref = storageRef.child(userSiswa.getUid() + "/Ijasah/" + userSiswa.getUid());
 
-        SKHUNref.putFile(imageUri)
+
+        SKHUNref.putFile(imageUriSKHUN)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -158,7 +209,26 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(inputNilai.this,
-                                "can't upload Image, ",
+                                "can't upload Image",
+                                Toast.LENGTH_LONG)
+                                .show();
+                    }
+                });
+        Ijasahref.putFile(imageUriIjasah)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(inputNilai.this,
+                                "Image Uploaded",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(inputNilai.this,
+                                "can't upload Image",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }

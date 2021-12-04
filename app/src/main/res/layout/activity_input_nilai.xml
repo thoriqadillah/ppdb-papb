@@ -340,7 +340,7 @@
                     android:id="@+id/btnSimpan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="128dp"
                     android:background="@drawable/buttondesign"
                     android:text="Simpan"
                     app:backgroundTint="@null"
