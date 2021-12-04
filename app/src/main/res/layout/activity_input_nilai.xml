@@ -64,7 +64,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:paddingStart="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa2"
+                    app:layout_constraintBottom_toTopOf="@+id/btnIjasah"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
@@ -92,7 +92,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
-                    android:id="@+id/btnImgSiswa2"
+                    android:id="@+id/btnIjasah"
                     android:layout_width="146dp"
                     android:layout_height="33dp"
                     android:layout_marginBottom="8dp"
@@ -107,7 +107,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/txvImgSiswa2"
+                    android:id="@+id/txvIjasahname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -116,7 +116,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.527"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/btnImgSiswa2" />
+                    app:layout_constraintTop_toTopOf="@+id/btnIjasah" />
 
                 <EditText
                     android:id="@+id/inputIpaUS"
@@ -235,7 +235,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
-                    android:id="@+id/btnImgSiswa"
+                    android:id="@+id/btnSKHUN"
                     android:layout_width="146dp"
                     android:layout_height="33dp"
                     android:layout_marginBottom="8dp"
@@ -250,7 +250,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
-                    android:id="@+id/txvImgSiswa"
+                    android:id="@+id/txvSKHUNname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -259,7 +259,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.552"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/btnImgSiswa" />
+                    app:layout_constraintTop_toTopOf="@+id/btnSKHUN" />
 
                 <EditText
                     android:id="@+id/inputMathUN"
@@ -299,7 +299,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:paddingStart="16dp"
-                    app:layout_constraintBottom_toTopOf="@+id/btnImgSiswa"
+                    app:layout_constraintBottom_toTopOf="@+id/btnSKHUN"
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
