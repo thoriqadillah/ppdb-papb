@@ -50,7 +50,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 FirebaseUser siswa = firebaseAuth.getCurrentUser();
 
                 if (siswa.isEmailVerified()) {
-                    Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
+//                    Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
+                    Intent intent = new Intent(LoginActivity.this, inputNilai.class);
                     startActivity(intent);
                     finish();
                 } else {
