@@ -30,11 +30,9 @@ import com.google.firebase.storage.UploadTask;
 
 public class dataDiri extends AppCompatActivity  implements View.OnClickListener {
 
-    EditText inputNISN, inputNamalkp, inputTempatLahir, inputTanggalLahir, inputAgama, inputKota, inputAsalSekolah;
+    EditText inputNISN, inputNamalkp, inputTempatLahir, inputTanggalLahir, inputjenis, inputAgama, inputKota, inputAsalSekolah;
     TextView tvFoto;
     Button btnImgFoto, btnSimpanDataDiri;
-    RadioGroup opsi;
-    RadioButton RadioButton1, RadioButton2;
     private static final int RC_FOTO = 0;
     public Uri imageUriFoto;
 
@@ -57,10 +55,9 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
         
         inputNISN = findViewById(R.id.inputNISN);
         inputNamalkp = findViewById(R.id.inputNamalkp);
-        RadioButton1 = (RadioButton) findViewById(R.id.laki);
-        RadioButton2 = (RadioButton) findViewById(R.id.perempuan);
         inputTempatLahir = findViewById(R.id.inputTempatLahir);
         inputTanggalLahir = findViewById(R.id.inputTanggalLahir);
+        inputjenis = findViewById(R.id.inputjenis);
         inputAgama = findViewById(R.id.inputAgama);
         inputKota = findViewById(R.id.inputKota);
         inputAsalSekolah = findViewById(R.id.inputAsalSekolah);

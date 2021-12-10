@@ -64,10 +64,10 @@
                 app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.412"
+                app:layout_constraintHorizontal_bias="0.406"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.694" />
+                app:layout_constraintVertical_bias="0.677" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -102,30 +102,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <EditText
-                android:id="@+id/inputNamalkp"
+                android:id="@+id/inputjenis"
                 android:layout_width="373dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="164dp"
+                android:layout_marginTop="268dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
-                android:hint="Nama Lengkap"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.172"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/inputTempatLahir"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="300dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Tempat Lahir"
+                android:hint="Jenis Kelamin: Laki-laki / Perempuan"
                 android:inputType="textPersonName"
                 android:paddingStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,10 +118,42 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
+                android:id="@+id/inputNamalkp"
+                android:layout_width="373dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="156dp"
+                android:background="@drawable/inputdesign"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Nama Lengkap"
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/inputTempatLahir"
+                android:layout_width="373dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="212dp"
+                android:background="@drawable/inputdesign"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Tempat Lahir"
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.172"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
                 android:id="@+id/inputTanggalLahir"
                 android:layout_width="373dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="348dp"
+                android:layout_marginTop="320dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
@@ -145,7 +161,7 @@
                 android:inputType="textPersonName"
                 android:paddingStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.172"
+                app:layout_constraintHorizontal_bias="0.161"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -153,7 +169,7 @@
                 android:id="@+id/inputAgama"
                 android:layout_width="373dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="400dp"
+                android:layout_marginTop="372dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
@@ -161,15 +177,16 @@
                 android:inputType="textPersonName"
                 android:paddingStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.172"
+                app:layout_constraintHorizontal_bias="0.161"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <EditText
                 android:id="@+id/inputKota"
                 android:layout_width="373dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="444dp"
+                android:layout_marginTop="428dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
@@ -185,7 +202,7 @@
                 android:id="@+id/inputAsalSekolah"
                 android:layout_width="373dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="488dp"
+                android:layout_marginTop="484dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
@@ -195,51 +212,6 @@
                 app:layout_constraintBottom_toTopOf="@+id/btnSimpanDataDiri"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvjeniskelamin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="224dp"
-                android:fontFamily="sans-serif"
-                android:text="Jenis Kelamin"
-                android:textSize="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.043"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RadioGroup
-                android:id="@+id/opsi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/inputTempatLahir"
-                app:layout_constraintStart_toStartOf="@+id/tvjeniskelamin">
-
-            </RadioGroup>
-
-            <RadioButton
-                android:id="@+id/laki"
-                android:layout_width="110dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="248dp"
-                android:text="Laki-Laki"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.044"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <RadioButton
-                android:id="@+id/perempuan"
-                android:layout_width="135dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="248dp"
-                android:text="Perempuan"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.432"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
