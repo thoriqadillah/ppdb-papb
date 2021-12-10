@@ -11,10 +11,8 @@ import com.example.ppdb.R;
 public class dataDiri extends AppCompatActivity {
 
 
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_datadiri);
-
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_datadiri);
     }
 }
