@@ -37,6 +37,9 @@
             android:name=".inputNilai"
             android:exported="true" />
         <activity
+            android:name=".dataDiri"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"></activity>
 
