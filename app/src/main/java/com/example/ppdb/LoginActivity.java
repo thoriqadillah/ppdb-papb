@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if (siswa.isEmailVerified()) {
 //                    Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
-                    Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
+                    Intent intent = new Intent(LoginActivity.this, dataDiri.class);
                     startActivity(intent);
                     finish();
                 } else {
