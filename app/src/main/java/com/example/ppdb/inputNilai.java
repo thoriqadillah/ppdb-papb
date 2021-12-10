@@ -85,7 +85,7 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
                     inputBindoUS.getText().toString(), inputIpaUS.getText().toString(),
                     inputIpsUS.getText().toString());
 
-            dbReference1.child(userSiswa.getUid()).child("Nilai").push().setValue(nilai).addOnSuccessListener(addNilai -> {
+            dbReference1.child(userSiswa.getUid()).child("Nilai").setValue(nilai).addOnSuccessListener(addNilai -> {
                 Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(failed -> {
                 Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
