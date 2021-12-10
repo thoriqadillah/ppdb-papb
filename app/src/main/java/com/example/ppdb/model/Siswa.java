@@ -7,7 +7,7 @@ public class Siswa {
     private String siswaId, namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin;
     private HashMap<String, String> hashMap = new HashMap<>();
 
-    public Siswa() {}
+    public Siswa(String s, String toString, String string, String s1, String toString1, String string1, String s2) {}
 
     public Siswa(String namaLengkap, String email, String password) {
         this.namaLengkap = namaLengkap;
