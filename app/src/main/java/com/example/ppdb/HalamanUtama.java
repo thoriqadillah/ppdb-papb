@@ -71,6 +71,9 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
                         .show();
 
                 break;
+            case R.id.idDataDiri:
+                Intent intentDataDiri = new Intent(HalamanUtama.this, dataDiri.class);
+                startActivity(intentDataDiri);
         }
         return true;
     }

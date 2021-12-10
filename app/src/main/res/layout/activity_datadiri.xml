@@ -8,19 +8,6 @@
     tools:context=".dataDiri">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="880dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/arrow___left_2" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -35,19 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.58" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="52dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/logo_ppdb" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -115,7 +89,7 @@
                 android:id="@+id/inputNISN"
                 android:layout_width="373dp"
                 android:layout_height="34dp"
-                android:layout_marginTop="108dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/inputdesign"
                 android:ems="10"
                 android:fontFamily="sans-serif"
@@ -125,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.172"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <EditText
                 android:id="@+id/inputNamalkp"
@@ -218,6 +192,7 @@
                 android:hint="Asal Sekolah"
                 android:inputType="textPersonName"
                 android:paddingStart="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnSimpanDataDiri"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.161"
                 app:layout_constraintStart_toStartOf="parent"
@@ -274,7 +249,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="168dp"
                 android:layout_marginBottom="24dp"
-                android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/textView4"
                 app:layout_constraintStart_toStartOf="@+id/btnImgFoto"
                 app:layout_constraintTop_toTopOf="parent"

@@ -10,13 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ppdb.R;
-import com.example.ppdb.model.Nilai;
 import com.example.ppdb.model.Siswa;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -68,6 +67,7 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
 
         btnSimpanDataDiri = findViewById(R.id.btnSimpanDataDiri);
         btnSimpanDataDiri.setOnClickListener(this);
+
     }
 
 
