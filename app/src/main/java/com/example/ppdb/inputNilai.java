@@ -19,8 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -34,6 +37,7 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     private static final int RC_Ijasah = 1;
     public Uri imageUriSKHUN;
     public Uri imageUriIjasah;
+    String mathUN, bindoUN, ipaUN, mathUS, bindoUS, ipaUS, ipsUS;
 
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -41,6 +45,10 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     DatabaseReference dbReference1 = db1.getReference("Siswa");
     FirebaseUser userSiswa = firebaseAuth.getCurrentUser();
     Nilai nilai;
+
+    DatabaseReference dbNilai = db1.getReference("Siswa").child(userSiswa.getUid()).child("Nilai");
+
+
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
@@ -73,24 +81,101 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
         btnIjasah = findViewById(R.id.btnIjasah);
         btnIjasah.setOnClickListener(this);
 
+//        String mathUN = nilai.getNilaiMathUN();
+//        inputMathUN.setText(mathUN);
+
+        dbNilai.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    mathUN = snapshot.child("nilaiMathUN").getValue(String.class);
+                    inputMathUN.setText(mathUN);
+                    bindoUN = snapshot.child("nilaiBindoUN").getValue(String.class);
+                    inputBindoUN.setText(bindoUN);
+                    ipaUN = snapshot.child("nilaiIpaUN").getValue(String.class);
+                    inputIpaUN.setText(ipaUN);
+
+                    mathUS= snapshot.child("nilaiMathUS").getValue(String.class);
+                    inputMathUS.setText(mathUS);
+                    bindoUS = snapshot.child("nilaiBindoUS").getValue(String.class);
+                    inputBindoUS.setText(bindoUS);
+                    ipaUS = snapshot.child("nilaiIpaUS").getValue(String.class);
+                    inputIpaUS.setText(ipaUS);
+                    ipsUS = snapshot.child("nilaiIpsUS").getValue(String.class);
+                    inputIpsUS.setText(ipsUS);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == btnSimpan.getId()){
-            uploadPicture();
-            nilai = new Nilai(inputMathUN.getText().toString(), inputBindoUN.getText().toString(),
-                    inputIpaUN.getText().toString(), inputMathUS.getText().toString(),
-                    inputBindoUS.getText().toString(), inputIpaUS.getText().toString(),
-                    inputIpsUS.getText().toString());
 
-            dbReference1.child(userSiswa.getUid()).child("Nilai").setValue(nilai).addOnSuccessListener(addNilai -> {
-                Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(failed -> {
-                Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
-            });
+        if(view.getId() == btnSimpan.getId()){
+            if (mathUN != null){
+                if(!mathUN.equals(inputMathUN.getText().toString())){
+                    dbNilai.child("nilaiMathUN").setValue(inputMathUN.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if(bindoUN != null){
+                if(!bindoUN.equals(inputBindoUN.getText().toString())){
+                    dbNilai.child("nilaiBindoUN").setValue(inputBindoUN.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if(ipaUN != null){
+                if(!ipaUN.equals(inputIpaUN.getText().toString())){
+                    dbNilai.child("nilaiIpaUN").setValue(inputIpaUN.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if (mathUS != null){
+                if(!mathUS.equals(inputMathUS.getText().toString())){
+                    dbNilai.child("nilaiMathUS").setValue(inputMathUS.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if(bindoUS != null){
+                if(!bindoUS.equals(inputBindoUS.getText().toString())){
+                    dbNilai.child("nilaiBindoUS").setValue(inputBindoUS.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if(ipaUS != null){
+                if(!ipaUS.equals(inputIpaUS.getText().toString())){
+                    dbNilai.child("nilaiIpaUS").setValue(inputIpaUS.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }if(ipsUS != null){
+                if(!ipsUS.equals(inputIpsUS.getText().toString())){
+                    dbNilai.child("nilaiIpsUS").setValue(inputIpsUS.getText().toString());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                uploadPicture();
+                nilai = new Nilai(inputMathUN.getText().toString(), inputBindoUN.getText().toString(),
+                        inputIpaUN.getText().toString(), inputMathUS.getText().toString(),
+                        inputBindoUS.getText().toString(), inputIpaUS.getText().toString(),
+                        inputIpsUS.getText().toString());
+
+                dbReference1.child(userSiswa.getUid()).child("Nilai").setValue(nilai).addOnSuccessListener(addNilai -> {
+                    Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(failed -> {
+                    Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+
+
+
+
+
             finish();
+
         }
 
 
