@@ -59,7 +59,9 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
+
+                                Intent intentOut = new Intent(HalamanUtama.this, LoginActivity.class);
+                                startActivity(intentOut);
                             }
                         })
                         .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
