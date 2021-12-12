@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HalamanUtama extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -59,9 +60,10 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
+                                FirebaseAuth.getInstance().signOut();
                                 Intent intentOut = new Intent(HalamanUtama.this, LoginActivity.class);
                                 startActivity(intentOut);
+                                finish();
                             }
                         })
                         .setNegativeButton("Batal", new DialogInterface.OnClickListener() {

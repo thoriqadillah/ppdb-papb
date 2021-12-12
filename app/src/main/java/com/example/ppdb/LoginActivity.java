@@ -39,6 +39,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         inpEmail = findViewById(R.id.emailFormLogin);
         inpPassword = findViewById(R.id.passwordFormLogin);
+
+        if (firebaseAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     // Sistemnya nanti setelah daftar lewat firebase auth nanti ada id nya disitu. Nah, id tsb jadi id di realtime db nya.
