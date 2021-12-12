@@ -4,15 +4,32 @@ import java.util.HashMap;
 
 public class Siswa {
 
-    private String siswaId, namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin;
-    private HashMap<String, String> hashMap = new HashMap<>();
+    private String siswaId, namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin, alamat;
 
-    public Siswa(String s, String toString, String string, String s1, String toString1, String string1, String s2) {}
+    public Siswa( String nisn, String namaLengkap, String jenisKelamin, String tglLahir, String tempatLahir, String agama, String alamat, String asalKota, String asalSekolak) {
+        this.nisn = nisn;
+        this.namaLengkap = namaLengkap;
+        this.jenisKelamin = jenisKelamin;
+        this.tglLahir = tglLahir;
+        this.tempatLahir = tempatLahir;
+        this.agama = agama;
+        this.alamat = alamat;
+        this.asalKota = asalKota;
+        this.asalSekolak = asalSekolak;
+    }
 
     public Siswa(String namaLengkap, String email, String password) {
         this.namaLengkap = namaLengkap;
         this.email = email;
         this.password = password;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 
     public void setSiswaId(String siswaId) {
