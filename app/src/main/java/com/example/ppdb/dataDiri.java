@@ -30,7 +30,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class dataDiri extends AppCompatActivity  implements View.OnClickListener {
 
-    EditText inputNISN, inputNamalkp, inputTempatLahir, inputTanggalLahir, inputjenis, inputAgama, inputKota, inputAsalSekolah;
+    EditText inputNISN, inputNamalkp, inputTempatLahir, inputTanggalLahir, inputjenis, inputAgama, inputKota, inputAsalSekolah, inputAlamat;
     TextView tvFoto;
     Button btnImgFoto, btnSimpanDataDiri;
     private static final int RC_FOTO = 0;
@@ -52,16 +52,19 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
             setContentView(R.layout.activity_datadiri);
 
 
-        
+        tvFoto = findViewById(R.id.tvFoto);
         inputNISN = findViewById(R.id.inputNISN);
         inputNamalkp = findViewById(R.id.inputNamalkp);
         inputTempatLahir = findViewById(R.id.inputTempatLahir);
         inputTanggalLahir = findViewById(R.id.inputTanggalLahir);
         inputjenis = findViewById(R.id.inputjenis);
+        inputAlamat = findViewById(R.id.inputAlamat);
         inputAgama = findViewById(R.id.inputAgama);
         inputKota = findViewById(R.id.inputKota);
         inputAsalSekolah = findViewById(R.id.inputAsalSekolah);
 
+        btnImgFoto = findViewById(R.id.btnImgFoto);
+        btnImgFoto.setOnClickListener(this);
         btnSimpanDataDiri = findViewById(R.id.btnSimpanDataDiri);
         btnSimpanDataDiri.setOnClickListener(this);
 
@@ -86,10 +89,10 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
         }
         if(view.getId() == btnImgFoto.getId()){
 //            choosePicture();
-            Intent intent1 = new Intent();
-            intent1.setType("image/*");
-            intent1.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent1, RC_FOTO);
+            Intent intent3 = new Intent();
+            intent3.setType("image/*");
+            intent3.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intent3, RC_FOTO);
         }
 
 
