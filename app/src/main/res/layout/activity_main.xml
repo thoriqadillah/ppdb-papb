@@ -4,15 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3FCFE"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="186dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="116dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_ppdb" />
+
     <TextView
+        android:id="@+id/txtJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="32dp"
+        android:text="PPDB ONLINE SMA PAPB"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/imageView3" />
 
+    <EditText
+        android:id="@+id/emailFormRegister"
+        android:layout_width="324dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/inputdesign"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:scrollbarSize="4dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/namaLengkapFormRegister"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/namaLengkapFormRegister"
+        app:layout_constraintTop_toBottomOf="@+id/namaLengkapFormRegister" />
+
+    <EditText
+        android:id="@+id/passwordFormRegister"
+        android:layout_width="324dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/inputdesign"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:scrollbarSize="4dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/emailFormRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/emailFormRegister"
+        app:layout_constraintTop_toBottomOf="@+id/emailFormRegister" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="324dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#3B82F6"
+        android:text="REGISTER"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/passwordFormRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/passwordFormRegister"
+        app:layout_constraintTop_toBottomOf="@+id/passwordFormRegister" />
+
+    <EditText
+        android:id="@+id/namaLengkapFormRegister"
+        android:layout_width="324dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/inputdesign"
+        android:ems="10"
+        android:hint="Nama Lengkap"
+        android:inputType="textPersonName"
+        android:paddingLeft="20dp"
+        android:scrollbarSize="4dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/txtJudul"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/txtJudul"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Sudah punya akun? "
+        android:textColor="#2B2A2A"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtBtnKeRegister"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    <TextView
+        android:id="@+id/txtBtnKeRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Masuk"
+        android:textColor="#3B82F6"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

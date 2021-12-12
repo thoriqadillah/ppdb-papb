@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3FCFE"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:context=".HalamanUtama"
+    tools:openDrawer="start">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F3FCFE"
+            android:id="@+id/idToolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:elevation="4dp"
+            app:title="PPDB ONLINE SMP PAPB"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/idFragment_container">
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnDataDiri"
+            android:layout_width="171dp"
+            android:layout_height="142dp"
+            android:layout_marginTop="241dp"
+            android:backgroundTint="#3BC9F6"
+            android:text="DATA DIRI"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="15dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnNilai"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnNilai"
+            android:layout_width="171dp"
+            android:layout_height="142dp"
+            android:backgroundTint="#3BC9F6"
+            android:text="NILAI"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDataDiri"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnDataDiri" />
+
+        <Button
+            android:id="@+id/btnPengumuman"
+            android:layout_width="369dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#3B82F6"
+            android:text="PENGUMUMAN LOLOS"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/btnNilai"
+            app:layout_constraintStart_toStartOf="@+id/btnDataDiri"
+            app:layout_constraintTop_toBottomOf="@+id/btnDataDiri" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/idNav_view"
+        android:background="#E4FAFF"
+        app:headerLayout="@layout/header_sidebar"
+        app:menu="@menu/drawer_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
