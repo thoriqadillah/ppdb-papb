@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         inpEmail = findViewById(R.id.emailFormLogin);
         inpPassword = findViewById(R.id.passwordFormLogin);
 
-        if (firebaseAuth.getCurrentUser() != null) {
+        if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()) {
             Intent intent = new Intent(LoginActivity.this, HalamanUtama.class);
             startActivity(intent);
             finish();

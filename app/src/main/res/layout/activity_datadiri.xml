@@ -4,230 +4,239 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3FCFE"
-    tools:context=".dataDiri">
-
+    android:background="@color/bluebg"
+    android:visibility="visible"
+    tools:context=".inputNilai"
+    tools:visibility="visible">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
         android:text="Data Diri"
-        android:textSize="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="466dp"
-        android:layout_height="838dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="408dp"
+        android:layout_height="657dp"
+        android:layout_marginTop="17dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="814dp">
 
 
-            <Button
-                android:id="@+id/btnImgFoto"
-                android:layout_width="146dp"
-                android:layout_height="33dp"
-                android:background="@drawable/buttondesign"
-                android:backgroundTint="@color/bluebtn"
-                android:text="Unggah Foto"
-                android:textSize="12sp"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.081"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.019" />
-
-            <Button
-                android:id="@+id/btnSimpanDataDiri"
-                android:layout_width="146dp"
-                android:layout_height="33dp"
-                android:background="@drawable/buttondesign"
-                android:backgroundTint="@color/bluebtn"
-                android:text="SIMPAN"
-                android:textSize="12sp"
-                app:backgroundTint="@null"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.406"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.677" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="279dp"
-                android:layout_height="37dp"
-                android:fontFamily="sans-serif"
-                android:text="Catatan : unggah foto format .jpg atau
-.png maksimal 2mb"
-                android:textSize="14dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.197"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.074" />
-
-            <EditText
-                android:id="@+id/inputNISN"
-                android:layout_width="373dp"
-                android:layout_height="34dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="NISN"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.172"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <EditText
-                android:id="@+id/inputjenis"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="268dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Jenis Kelamin: Laki-laki / Perempuan"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/inputNamalkp"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="156dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Nama Lengkap"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/inputTempatLahir"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="212dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Tempat Lahir"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.172"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/inputTanggalLahir"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="320dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Tanggal Lahir"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/inputAgama"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="372dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Agama"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/btnImgFoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/buttondesign"
+                    android:backgroundTint="@color/bluebtn"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Unggah Foto"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.114"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
-            <EditText
-                android:id="@+id/inputKota"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="428dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Kota/Kabupaten"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvFoto"
+                    android:layout_width="142dp"
+                    android:layout_height="21dp"
+                    android:layout_marginTop="12dp"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnImgFoto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.169"
+                    app:layout_constraintStart_toEndOf="@+id/btnImgFoto"
+                    app:layout_constraintTop_toTopOf="@+id/btnImgFoto"
+                    app:layout_constraintVertical_bias="0.0" />
 
-            <EditText
-                android:id="@+id/inputAsalSekolah"
-                android:layout_width="373dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="484dp"
-                android:background="@drawable/inputdesign"
-                android:ems="10"
-                android:fontFamily="sans-serif"
-                android:hint="Asal Sekolah"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/btnSimpanDataDiri"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.161"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <EditText
+                    android:id="@+id/inputNISN"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="NISN"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnImgFoto" />
 
-            <TextView
-                android:id="@+id/tvFoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="168dp"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/btnImgFoto"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                <EditText
+                    android:id="@+id/inputNamalkp"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Nama Lengkap"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputNISN" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/inputjenis"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Jenis Kelamin: Laki-laki / Perempuan"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputNamalkp" />
+
+                <EditText
+                    android:id="@+id/inputTempatLahir"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Tempat Lahir"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputjenis" />
+
+                <EditText
+                    android:id="@+id/inputTanggalLahir"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Tanggal Lahir"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputTempatLahir" />
+
+                <EditText
+                    android:id="@+id/inputAgama"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Agama"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputTanggalLahir" />
+
+                <EditText
+                    android:id="@+id/inputAlamat"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Alamat"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputAgama" />
+
+                <EditText
+                    android:id="@+id/inputKota"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Kota / Kabupaten "
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputAlamat" />
+
+                <EditText
+                    android:id="@+id/inputAsalSekolah"
+                    android:layout_width="339dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/inputdesign"
+                    android:ems="10"
+                    android:hint="Asal Sekolah"
+                    android:inputType="textPersonName"
+                    android:paddingStart="16dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.414"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputKota" />
+
+                <Button
+                    android:id="@+id/btnSimpanDataDiri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="36dp"
+                    android:background="@drawable/buttondesign"
+                    android:text="Simpan"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inputAsalSekolah"
+                    app:layout_constraintVertical_bias="0.582" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
