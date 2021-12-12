@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3FCFE"
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:context=".HalamanUtama"
@@ -17,11 +18,12 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/design_default_color_primary"
+            android:background="#F3FCFE"
             android:id="@+id/idToolbar"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            app:title="PPDB ONLINE SMP PAPB"/>
 
         <FrameLayout
             android:layout_width="match_parent"

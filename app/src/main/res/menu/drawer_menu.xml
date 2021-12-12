@@ -8,14 +8,15 @@
             android:id="@+id/idDataDiri"
             android:title="Data Diri"
             android:background="#AAEFFF"
-            android:icon="@drawable/ic_profile"/>
+            android:icon="@drawable/ic_profile"
+            android:textColor="@color/black"/>
 
         <item
             android:id="@+id/idLogout"
             android:title="Logout"
             android:background="#AAEFFF"
             android:icon="@drawable/ic_logout"
-            />
+            android:textColor="@color/black"/>
     </group>
 
 
