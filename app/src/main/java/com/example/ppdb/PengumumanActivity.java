@@ -33,7 +33,7 @@ public class PengumumanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengumuman);
 
-        mRecylcer = findViewById(R.id.rvPengumuman);
+        mRecylcer = findViewById(R.id.idRvPeng);
         mRecylcer.setHasFixedSize(true);
 
         mManager = new LinearLayoutManager(this);

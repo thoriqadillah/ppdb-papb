@@ -23,7 +23,8 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:elevation="4dp"
-            app:title="PPDB ONLINE SMP PAPB"/>
+            app:title="PPDB ONLINE SMP PAPB"
+            app:titleTextColor="@color/black"/>
 
         <FrameLayout
             android:layout_width="match_parent"

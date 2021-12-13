@@ -24,6 +24,10 @@ public class Siswa {
         this.password = password;
     }
 
+    public Siswa() {
+
+    }
+
     public String getAlamat() {
         return alamat;
     }
