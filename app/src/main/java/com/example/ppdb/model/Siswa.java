@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class Siswa {
 
     private String siswaId, namaLengkap, email, password, nisn, tglLahir, tempatLahir, agama, asalKota, asalSekolak, jenisKelamin, alamat;
+    private String rerataUN, rerataUS;
+    private Nilai nilai;
 
     public Siswa( String nisn, String namaLengkap, String jenisKelamin, String tglLahir, String tempatLahir, String agama, String alamat, String asalKota, String asalSekolak) {
         this.nisn = nisn;
@@ -26,6 +28,30 @@ public class Siswa {
 
     public Siswa() {
 
+    }
+
+    public Nilai getNilai() {
+        return nilai;
+    }
+
+    public void setNilai(Nilai nilai) {
+        this.nilai = nilai;
+    }
+
+    public void setRerataUN(Nilai nilai) {
+        this.rerataUN = nilai.getRerataUN();
+    }
+
+    public void setRerataUS(Nilai rerataUS) {
+        this.rerataUS = rerataUS.getRerataUS();
+    }
+
+    public String getRerataUN() {
+        return rerataUN;
+    }
+
+    public String getRerataUS() {
+        return rerataUS;
     }
 
     public String getAlamat() {

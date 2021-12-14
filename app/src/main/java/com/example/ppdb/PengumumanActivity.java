@@ -14,15 +14,18 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PengumumanActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
-    DatabaseReference dbReference = db.getReference(Siswa.class.getSimpleName());
+    DatabaseReference dbReference = db.getReference("Siswa");
 
-    ArrayList<Siswa> list;
+    ArrayList<Siswa> listSiswa = new ArrayList<>();;
     Adapter adapter;
 
     private RecyclerView mRecylcer;
@@ -40,18 +43,20 @@ public class PengumumanActivity extends AppCompatActivity {
 //        mManager.setReverseLayout(true);
 //        mManager.setStackFromEnd(true);
         mRecylcer.setLayoutManager(mManager);
-        list = new ArrayList<>();
-        adapter = new Adapter(this, list);
+
+
+
+        adapter = new Adapter(this, listSiswa);
         mRecylcer.setAdapter(adapter);
 
-
-        dbReference.addValueEventListener(new ValueEventListener() {
+        dbReference.orderByChild("namaLengkap").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    Siswa mhs = dataSnapshot1.getValue(Siswa.class);
-                    list.add(mhs);
+                    Siswa siswa = dataSnapshot1.getValue(Siswa.class);
+                    listSiswa.add(siswa);
                 }
+
                 adapter.notifyDataSetChanged();
             }
 

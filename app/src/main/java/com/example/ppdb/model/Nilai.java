@@ -1,13 +1,21 @@
 package com.example.ppdb.model;
 
-import java.util.HashMap;
-
 public class Nilai {
 
     private String nilaiMathUN, nilaiBindoUN, nilaiIpaUN, nilaiMathUS, nilaiBindoUS, nilaiIpaUS, nilaiIpsUS;
-    private HashMap<String, String> hashMap = new HashMap<>();
+    private String rerataUN, rerataUS;
 
     public Nilai() {}
+
+    public Nilai(String nilaiMathUN, String nilaiBindoUN, String nilaiIpaUN, String nilaiMathUS, String nilaiBindoUS, String nilaiIpaUS, String nilaiIpsUS) {
+        this.nilaiMathUN = nilaiMathUN;
+        this.nilaiBindoUN = nilaiBindoUN;
+        this.nilaiIpaUN = nilaiIpaUN;
+        this.nilaiMathUS = nilaiMathUS;
+        this.nilaiBindoUS = nilaiBindoUS;
+        this.nilaiIpaUS = nilaiIpaUS;
+        this.nilaiIpsUS = nilaiIpsUS;
+    }
 
     public Nilai(String nilaiMathUN, String nilaiBindoUN, String nilaiIpaUN) {
         this.nilaiMathUN = nilaiMathUN;
@@ -20,6 +28,32 @@ public class Nilai {
         this.nilaiBindoUS = nilaiBindoUS;
         this.nilaiIpaUS = nilaiIpaUS;
         this.nilaiIpsUS = nilaiIpsUS;
+    }
+
+    public void setNilaiBindoUN(String nilaiBindoUN) {
+        this.nilaiBindoUN = nilaiBindoUN;
+    }
+
+    public void setNilaiBindoUS(String nilaiBindoUS) {
+        this.nilaiBindoUS = nilaiBindoUS;
+    }
+
+    public void setRerataUN(String nilaiMathUN, String nilaiIpaUN, String nilaiBindoUN) {
+        int rerata = (Integer.parseInt(nilaiMathUN) + Integer.parseInt(nilaiIpaUN) + Integer.parseInt(nilaiBindoUN)) / 3;
+        this.rerataUN = String.valueOf(rerata);
+    }
+
+    public void setRerataUS(String nilaiMathUS, String nilaiIpaUS, String nilaiBindoUS, String nilaiIpsUS) {
+        int rerata =  (Integer.parseInt(nilaiMathUS) + Integer.parseInt(nilaiIpaUS) + Integer.parseInt(nilaiBindoUS) + Integer.parseInt(nilaiIpsUS)) / 4;
+        this.rerataUS = String.valueOf(rerata);
+    }
+
+    public String getRerataUN() {
+        return rerataUN;
+    }
+
+    public String getRerataUS() {
+        return rerataUS;
     }
 
     public void setNilaiMathUN(String nilaiMathUN) {
