@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ppdb">
         <activity
+            android:name=".PengumumanLolos"
+            android:exported="true" />
+        <activity
             android:name=".PengumumanActivity"
             android:exported="true" />
         <activity
@@ -26,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".dataDiri"
             android:exported="true" />
@@ -41,7 +43,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HalamanUtama extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private DrawerLayout drawer;
-    Button idLogout, btnDataDiri, btnPengumuman, btnNilai;
+    Button idLogout, btnDataDiri, btnDaftarSiswa, btnNilai, btnPengumuman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +38,12 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
 
         btnDataDiri = findViewById(R.id.btnDataDiri);
         btnNilai = findViewById(R.id.btnNilai);
-        btnPengumuman = findViewById(R.id.btnPengumuman);
+        btnDaftarSiswa = findViewById(R.id.btnDaftarSiswa);
+        btnPengumuman=findViewById(R.id.btnPengumuman);
 
         btnDataDiri.setOnClickListener(this);
         btnNilai.setOnClickListener(this);
+        btnDaftarSiswa.setOnClickListener(this);
         btnPengumuman.setOnClickListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -101,8 +103,11 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
         } else if (view.getId() == btnNilai.getId()) {
             intent = new Intent(HalamanUtama.this, inputNilai.class);
             startActivity(intent);
-        } else {
+        } else if (view.getId() == btnDaftarSiswa.getId()) {
             intent = new Intent(HalamanUtama.this, PengumumanActivity.class);
+            startActivity(intent);
+        }else if (view.getId() == btnPengumuman.getId()) {
+            intent = new Intent(HalamanUtama.this, PengumumanLolos.class);
             startActivity(intent);
         }
     }
