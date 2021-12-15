@@ -21,8 +21,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,13 +41,14 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseDatabase db2 = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
-    DatabaseReference dbReference2 = db2.getReference(Siswa.class.getSimpleName());
     FirebaseUser userSiswa = firebaseAuth.getCurrentUser();
-    Siswa siswa;
+    DatabaseReference dbSiswa = db2.getReference(Siswa.class.getSimpleName()).child(userSiswa.getUid());
+
+    String nisn, namaLengkap, tempatLahir, tglLahir, jenisKelamin, alamat, agama, asalKota, asalSekolah;
+    Siswa siswa = Siswa.getInstance();
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    String currentPhotoPath;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,22 +70,72 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
         btnSimpanDataDiri = findViewById(R.id.btnSimpanDataDiri);
         btnSimpanDataDiri.setOnClickListener(this);
 
+
+        dbSiswa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    nisn = snapshot.child("nisn").getValue(String.class);
+                    inputNISN.setText(nisn);
+
+                    namaLengkap = snapshot.child("namaLengkap").getValue(String.class);
+                    inputNamalkp.setText(namaLengkap);
+
+                    tempatLahir = snapshot.child("tempatLahir").getValue(String.class);
+                    inputTempatLahir.setText(tempatLahir);
+
+                    tglLahir = snapshot.child("tglLahir").getValue(String.class);
+                    inputTanggalLahir.setText(tglLahir);
+
+                    agama = snapshot.child("agama").getValue(String.class);
+                    inputAgama.setText(agama);
+
+                    jenisKelamin = snapshot.child("jenisKelamin").getValue(String.class);
+                    inputjenis.setText(jenisKelamin);
+
+                    alamat = snapshot.child("alamat").getValue(String.class);
+                    inputAlamat.setText(alamat);
+
+                    asalKota = snapshot.child("asalKota").getValue(String.class);
+                    inputKota.setText(asalKota);
+
+                    asalSekolah = snapshot.child("asalSekolak").getValue(String.class);
+                    inputAsalSekolah.setText(asalSekolah);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
 
         if(view.getId() == btnSimpanDataDiri.getId()){
-            uploadPicture();
-            siswa = new Siswa(inputNISN.getText().toString(), inputNamalkp.getText().toString(), inputjenis.getText().toString(),
-                    inputTanggalLahir.getText().toString(), inputTempatLahir.getText().toString(), inputAgama.getText().toString(),
-                    inputAlamat.getText().toString(), inputKota.getText().toString(), inputAsalSekolah.getText().toString());
 
-            dbReference2.child(userSiswa.getUid()).child("Data Diri").setValue(siswa).addOnSuccessListener(addNilai -> {
+            uploadPicture();
+
+            siswa.setNisn(inputNISN.getText().toString());
+            siswa.setNamaLengkap(inputNamalkp.getText().toString());
+            siswa.setJenisKelamin(inputjenis.getText().toString());
+            siswa.setTglLahir(inputTanggalLahir.getText().toString());
+            siswa.setTempatLahir(inputTempatLahir.getText().toString());
+            siswa.setAgama(inputAgama.getText().toString());
+            siswa.setAlamat(inputAlamat.getText().toString());
+            siswa.setAsalKota(inputKota.getText().toString());
+            siswa.setAsalSekolak(inputAsalSekolah.getText().toString());
+
+
+            dbSiswa.child(userSiswa.getUid()).setValue(siswa).addOnSuccessListener(addNilai -> {
                 Toast.makeText(this, "Data berhasil tersimpan", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(failed -> {
                 Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
             });
+
+            finish();
         }
 
         if(view.getId() == btnImgFoto.getId()){
