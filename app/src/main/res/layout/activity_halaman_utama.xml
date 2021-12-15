@@ -53,22 +53,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <Button
-            android:id="@+id/btnPengumuman"
-            android:layout_width="369dp"
-            android:layout_height="79dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="180dp"
-            android:backgroundTint="#3B82F6"
-            android:text="Pengumuman "
-            android:textColor="#FFFFFF"
-            app:cornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnDaftarSiswa" />
-
         <Button
             android:id="@+id/btnNilai"
             android:layout_width="171dp"
@@ -83,7 +67,7 @@
             app:layout_constraintStart_toEndOf="@+id/btnDataDiri" />
 
         <Button
-            android:id="@+id/btnDaftarSiswa"
+            android:id="@+id/btnPengumuman"
             android:layout_width="369dp"
             android:layout_height="79dp"
             android:layout_marginTop="10dp"
@@ -98,13 +82,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        <com.google.android.material.navigation.NavigationView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:id="@+id/idNav_view"-->
-<!--        android:background="#E4FAFF"-->
-<!--        app:headerLayout="@layout/header_sidebar"-->
-<!--        app:menu="@menu/drawer_menu"/>-->
+        <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/idNav_view"
+        android:background="#E4FAFF"
+        app:headerLayout="@layout/header_sidebar"
+        app:menu="@menu/drawer_menu"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
