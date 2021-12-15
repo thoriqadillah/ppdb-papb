@@ -17,13 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PengumumanActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
     DatabaseReference dbReference = db.getReference(Siswa.class.getSimpleName());
     DatabaseReference dbReference2 = db.getReference(Siswa.class.getSimpleName()).child("Nilai");
 
-    ArrayList<Siswa> list;
+    ArrayList<Siswa> listSiswa;
     Adapter adapter;
 
     private RecyclerView mRecylcer;
@@ -38,22 +39,20 @@ public class PengumumanActivity extends AppCompatActivity {
         mRecylcer.setHasFixedSize(true);
 
         mManager = new LinearLayoutManager(this);
-//        mManager.setReverseLayout(true);
-//        mManager.setStackFromEnd(true);
         mRecylcer.setLayoutManager(mManager);
-        list = new ArrayList<>();
-        adapter = new Adapter(this, list);
+        listSiswa = new ArrayList<>();
+        adapter = new Adapter(this, listSiswa);
         mRecylcer.setAdapter(adapter);
 
 
-        dbReference.addValueEventListener(new ValueEventListener() {
+        dbReference.orderByChild("rerataUN").limitToFirst(60).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    Siswa mhs = dataSnapshot1.getValue(Siswa.class);
-                    list.add(mhs);
+                    Siswa siswa = dataSnapshot1.getValue(Siswa.class);
+                    listSiswa.add(siswa);
                 }
-                for (list : )
+                Collections.reverse(listSiswa);
                 adapter.notifyDataSetChanged();
             }
 
