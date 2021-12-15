@@ -9,22 +9,18 @@ public class Nilai {
 
     public Nilai() {}
 
-    public Nilai(String nilaiMathUN, String nilaiBindoUN, String nilaiIpaUN, String nilaiMathUS, String nilaiBindoUS, String nilaiIpaUS, String nilaiIpsUS) {
+    public Nilai(String nilaiMathUN, String nilaiBindoUN, String nilaiIpaUN) {
         this.nilaiMathUN = nilaiMathUN;
         this.nilaiBindoUN = nilaiBindoUN;
         this.nilaiIpaUN = nilaiIpaUN;
+    }
+
+    public Nilai(String nilaiMathUS, String nilaiBindoUS, String nilaiIpaUS, String nilaiIpsUS) {
         this.nilaiMathUS = nilaiMathUS;
         this.nilaiBindoUS = nilaiBindoUS;
         this.nilaiIpaUS = nilaiIpaUS;
         this.nilaiIpsUS = nilaiIpsUS;
     }
-
-
-    //    public Nilai(String namaLengkap, String email, String password) {
-//        this.namaLengkap = namaLengkap;
-//        this.email = email;
-//        this.password = password;
-//    }
 
     public void setNilaiMathUN(String nilaiMathUN) {
         this.nilaiMathUN = nilaiMathUN;

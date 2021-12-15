@@ -10,11 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ppdb.model.Nilai;
+import com.example.ppdb.model.Siswa;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,27 +38,21 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     public Uri imageUriIjasah;
     String mathUN, bindoUN, ipaUN, mathUS, bindoUS, ipaUS, ipsUS;
 
-
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseDatabase db1 = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
-    DatabaseReference dbReference1 = db1.getReference("Siswa");
     FirebaseUser userSiswa = firebaseAuth.getCurrentUser();
-    Nilai nilai;
-
-    DatabaseReference dbNilai = db1.getReference("Siswa").child(userSiswa.getUid()).child("Nilai");
-
-
+    DatabaseReference dbSiswa = db1.getReference(Siswa.class.getSimpleName()).child(userSiswa.getUid());
+//    DatabaseReference dbNilai = db1.getReference("Siswa").child(userSiswa.getUid()).child("Nilai");
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    String currentPhotoPath;
+
+    Siswa siswa = Siswa.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_nilai);
-
-
 
         inputMathUN = findViewById(R.id.inputMathUN);
         inputBindoUN = findViewById(R.id.inputBindoUN);
@@ -81,28 +74,33 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
         btnIjasah = findViewById(R.id.btnIjasah);
         btnIjasah.setOnClickListener(this);
 
-//        String mathUN = nilai.getNilaiMathUN();
-//        inputMathUN.setText(mathUN);
-
-        dbNilai.addValueEventListener(new ValueEventListener() {
+        dbSiswa.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    mathUN = snapshot.child("nilaiMathUN").getValue(String.class);
+                    mathUN = String.valueOf(snapshot.child("nilaiMathUN").getValue());
                     inputMathUN.setText(mathUN);
-                    bindoUN = snapshot.child("nilaiBindoUN").getValue(String.class);
+
+                    bindoUN = String.valueOf(snapshot.child("nilaiBindoUN").getValue());
                     inputBindoUN.setText(bindoUN);
-                    ipaUN = snapshot.child("nilaiIpaUN").getValue(String.class);
+
+                    ipaUN = String.valueOf(snapshot.child("nilaiIpaUN").getValue());
                     inputIpaUN.setText(ipaUN);
 
-                    mathUS= snapshot.child("nilaiMathUS").getValue(String.class);
+                    mathUS = String.valueOf(snapshot.child("nilaiMathUS").getValue());
                     inputMathUS.setText(mathUS);
-                    bindoUS = snapshot.child("nilaiBindoUS").getValue(String.class);
+
+                    bindoUS = String.valueOf(snapshot.child("nilaiBindoUS").getValue());
                     inputBindoUS.setText(bindoUS);
-                    ipaUS = snapshot.child("nilaiIpaUS").getValue(String.class);
+
+                    ipaUS = String.valueOf(snapshot.child("nilaiIpaUS").getValue());
                     inputIpaUS.setText(ipaUS);
-                    ipsUS = snapshot.child("nilaiIpsUS").getValue(String.class);
+
+                    ipsUS = String.valueOf(snapshot.child("nilaiIpsUS").getValue());
                     inputIpsUS.setText(ipsUS);
+
+                    siswa.setRerataUN(Integer.parseInt(mathUN), Integer.parseInt(bindoUN), Integer.parseInt(ipaUN));
+                    siswa.setRerataUS(Integer.parseInt(mathUS), Integer.parseInt(bindoUS), Integer.parseInt(ipaUS), Integer.parseInt(ipsUS));
                 }
             }
 
@@ -111,75 +109,119 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
 
             }
         });
-
-
     }
-
 
     @Override
     public void onClick(View view) {
-
-        if(view.getId() == btnSimpan.getId()){
-            if (mathUN != null){
-                if(!mathUN.equals(inputMathUN.getText().toString())){
-                    dbNilai.child("nilaiMathUN").setValue(inputMathUN.getText().toString());
+        if (view.getId() == btnSimpan.getId()) {
+            if (mathUN != null) {
+                if (!mathUN.equals(inputMathUN.getText().toString())) {
+                    siswa.setNilaiMathUN(Integer.parseInt(inputMathUN.getText().toString()));
+                    dbSiswa.child("nilaiMathUN").setValue(siswa.getNilaiMathUN());
                     Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
                 }
-            }if(bindoUN != null){
-                if(!bindoUN.equals(inputBindoUN.getText().toString())){
-                    dbNilai.child("nilaiBindoUN").setValue(inputBindoUN.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
-            }if(ipaUN != null){
-                if(!ipaUN.equals(inputIpaUN.getText().toString())){
-                    dbNilai.child("nilaiIpaUN").setValue(inputIpaUN.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
-            }if (mathUS != null){
-                if(!mathUS.equals(inputMathUS.getText().toString())){
-                    dbNilai.child("nilaiMathUS").setValue(inputMathUS.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
-            }if(bindoUS != null){
-                if(!bindoUS.equals(inputBindoUS.getText().toString())){
-                    dbNilai.child("nilaiBindoUS").setValue(inputBindoUS.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
-            }if(ipaUS != null){
-                if(!ipaUS.equals(inputIpaUS.getText().toString())){
-                    dbNilai.child("nilaiIpaUS").setValue(inputIpaUS.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
-            }if(ipsUS != null){
-                if(!ipsUS.equals(inputIpsUS.getText().toString())){
-                    dbNilai.child("nilaiIpsUS").setValue(inputIpsUS.getText().toString());
-                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
             }
-            else{
-                uploadPicture();
-                nilai = new Nilai(inputMathUN.getText().toString(), inputBindoUN.getText().toString(),
-                        inputIpaUN.getText().toString(), inputMathUS.getText().toString(),
-                        inputBindoUS.getText().toString(), inputIpaUS.getText().toString(),
-                        inputIpsUS.getText().toString());
 
-                dbReference1.child(userSiswa.getUid()).child("Nilai").setValue(nilai).addOnSuccessListener(addNilai -> {
+            if (bindoUN != null) {
+                if (!bindoUN.equals(inputBindoUN.getText().toString())) {
+                    siswa.setNilaiBindoUN(Integer.parseInt(inputBindoUN.getText().toString()));
+                    dbSiswa.child("nilaiBindoUN").setValue(siswa.getNilaiBindoUN());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (ipaUN != null) {
+                if (!ipaUN.equals(inputIpaUN.getText().toString())) {
+                    siswa.setNilaiIpaUN(Integer.parseInt(inputIpaUN.getText().toString()));
+                    dbSiswa.child("nilaiIpaUN").setValue(siswa.getNilaiIpaUN());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (mathUS != null) {
+                if (!mathUS.equals(inputMathUS.getText().toString())) {
+                    siswa.setNilaiMathUS(Integer.parseInt(inputMathUS.getText().toString()));
+                    dbSiswa.child("nilaiMathUS").setValue(siswa.getNilaiMathUS());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (bindoUS != null) {
+                if (!bindoUS.equals(inputBindoUS.getText().toString())) {
+                    siswa.setNilaiBindoUS(Integer.parseInt(inputMathUN.getText().toString()));
+                    dbSiswa.child("nilaiBindoUS").setValue(siswa.getNilaiBindoUS());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (ipaUS != null) {
+                if (!ipaUS.equals(inputIpaUS.getText().toString())) {
+                    siswa.setNilaiIpaUS(Integer.parseInt(inputIpaUS.getText().toString()));
+                    dbSiswa.child("nilaiIpaUS").setValue(siswa.getNilaiIpaUS());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (ipsUS != null) {
+                if (!ipsUS.equals(inputIpsUS.getText().toString())) {
+                    siswa.setNilaiIpsUS(Integer.parseInt(inputIpsUS.getText().toString()));
+                    dbSiswa.child("nilaiIpsUS").setValue(siswa.getNilaiIpsUS());
+                    Toast.makeText(this, "Nilai berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Nilai tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+
+            if (mathUN != null && bindoUN != null && ipaUN != null) {
+                siswa.setRerataUN(Integer.parseInt(inputMathUN.getText().toString()), Integer.parseInt(inputBindoUN.getText().toString()),
+                        Integer.parseInt(inputIpaUN.getText().toString()));
+                dbSiswa.child("rerataUN").setValue(siswa.getRerataUN());
+            }
+            if (mathUS != null && bindoUS != null && ipaUS != null && ipsUS != null) {
+                siswa.setRerataUS(Integer.parseInt(inputMathUS.getText().toString()), Integer.parseInt(inputBindoUS.getText().toString()),
+                        Integer.parseInt(inputIpaUS.getText().toString()), Integer.parseInt(inputIpsUS.getText().toString()));
+                dbSiswa.child("rerataUS").setValue(siswa.getRerataUS());
+            }
+            if ((mathUN == null && bindoUN == null && ipaUN == null && mathUS == null &&
+                    bindoUS == null&& ipaUS == null && ipsUS == null)) {
+
+                uploadPicture();
+
+                siswa.setNilaiMathUN(Integer.parseInt(inputMathUN.getText().toString()));
+                siswa.setNilaiBindoUN(Integer.parseInt(inputBindoUN.getText().toString()));
+                siswa.setNilaiIpaUN(Integer.parseInt(inputIpaUN.getText().toString()));
+                siswa.setNilaiMathUS(Integer.parseInt(inputMathUS.getText().toString()));
+                siswa.setNilaiBindoUS(Integer.parseInt(inputBindoUS.getText().toString()));
+                siswa.setNilaiIpaUS(Integer.parseInt(inputIpaUS.getText().toString()));
+                siswa.setNilaiIpsUS(Integer.parseInt(inputIpsUS.getText().toString()));
+                siswa.setRerataUN(Integer.parseInt(inputMathUN.getText().toString()), Integer.parseInt(inputBindoUN.getText().toString()),
+                        Integer.parseInt(inputIpaUN.getText().toString()));
+                siswa.setRerataUS(Integer.parseInt(inputMathUS.getText().toString()), Integer.parseInt(inputBindoUS.getText().toString()),
+                        Integer.parseInt(inputIpaUS.getText().toString()), Integer.parseInt(inputIpsUS.getText().toString()));
+
+                dbSiswa.setValue(siswa).addOnSuccessListener(success -> {
                     Toast.makeText(this, "Nilai berhasil tersimpan", Toast.LENGTH_SHORT).show();
                 }).addOnFailureListener(failed -> {
                     Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
-
-
-
-
-
             finish();
-
         }
 
 
-        if(view.getId() == btnSKHUN.getId()){
+        if (view.getId() == btnSKHUN.getId()) {
 //            choosePicture();
             Intent intent1 = new Intent();
             intent1.setType("image/*");
@@ -187,49 +229,18 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
             startActivityForResult(intent1, RC_SKHUN);
         }
 
-        if(view.getId() == btnIjasah.getId()){
+        if (view.getId() == btnIjasah.getId()) {
 //            choosePicture();
             Intent intent2 = new Intent();
             intent2.setType("image/*");
             intent2.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(intent2, RC_Ijasah);
         }
-
-//        if(view.getId() == btnIjasah.getId()){
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//                if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-//                    String[] Permisions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-//                    requestPermissions(Permisions, 100);
-//                } else {
-//                    selectImage(inputNilai.this);
-//
-//                }
-//            } else {
-//                selectImage(inputNilai.this);
-//
-//            }
-//        }
-
     }
-
-//    private void choosePicture() {
-//        Intent intent = new Intent();
-//        intent.setType("image/*");
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(intent, 1);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==1 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
-//            imageUri = data.getData();
-//            if (imageUri!=null){
-//
-//            }
-//            uploadPicture();
-//
-//        }
         switch (requestCode){
             case RC_SKHUN:
                 if(resultCode==RESULT_OK){
@@ -264,7 +275,6 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
     private void uploadPicture() {
         StorageReference SKHUNref = storageRef.child(userSiswa.getUid() + "/SKHUN/" + userSiswa.getUid());
         StorageReference Ijasahref = storageRef.child(userSiswa.getUid() + "/Ijasah/" + userSiswa.getUid());
-
 
         SKHUNref.putFile(imageUriSKHUN)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
