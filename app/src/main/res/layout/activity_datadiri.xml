@@ -40,7 +40,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="814dp">
+                android:layout_height="1100dp">
 
 
                 <Button
@@ -52,8 +52,8 @@
                     android:background="@drawable/buttondesign"
                     android:backgroundTint="@color/bluebtn"
                     android:fontFamily="@font/roboto_bold"
-                    android:textColor="@color/white"
                     android:text="Unggah Foto"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     app:backgroundTint="@null"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +68,8 @@
                     android:layout_width="142dp"
                     android:layout_height="21dp"
                     android:layout_marginTop="12dp"
-                    android:textSize="14sp"
                     android:textColor="@color/black"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/btnImgFoto"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.169"
@@ -132,7 +132,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@drawable/inputdesign"
                     android:ems="10"
-                    android:hint="Tempat Lahir"
+                    android:hint="Tempat Lahir (DD-MM-YYYY)"
                     android:inputType="textPersonName"
                     android:paddingStart="16dp"
                     android:textColor="@color/black"
@@ -225,17 +225,15 @@
                     android:id="@+id/btnSimpanDataDiri"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="36dp"
+                    android:layout_marginTop="24dp"
                     android:background="@drawable/buttondesign"
                     android:text="Simpan"
                     android:textColor="@color/white"
                     app:backgroundTint="@null"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.473"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/inputAsalSekolah"
-                    app:layout_constraintVertical_bias="0.582" />
+                    app:layout_constraintTop_toBottomOf="@+id/inputAsalSekolah" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
