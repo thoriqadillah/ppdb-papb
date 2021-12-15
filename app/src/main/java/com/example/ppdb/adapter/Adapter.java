@@ -42,6 +42,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Siswa siswa = siswas.get(position);
         holder.nama.setText(siswa.getNamaLengkap());
+        holder.nomor.setText(String.valueOf(position + 1));
 //        holder.nama.setText(siswas.get(position).getNamaLengkap());
     }
 
@@ -52,10 +53,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView nama;
+        TextView nomor;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nama = itemView.findViewById(R.id.txNamaPengumuman);
+            nomor=itemView.findViewById(R.id.txNomor);
         }
     }
 }

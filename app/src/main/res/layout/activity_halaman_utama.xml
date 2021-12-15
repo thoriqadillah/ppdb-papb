@@ -72,12 +72,14 @@
             android:layout_height="79dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#3B82F6"
-            android:text="PENGUMUMAN LOLOS"
+            android:text="PENGUMUMAN"
             android:textColor="#FFFFFF"
             app:cornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="@+id/btnNilai"
             app:layout_constraintStart_toStartOf="@+id/btnDataDiri"
             app:layout_constraintTop_toBottomOf="@+id/btnDataDiri" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.navigation.NavigationView

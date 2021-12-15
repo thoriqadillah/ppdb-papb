@@ -114,26 +114,114 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
     @Override
     public void onClick(View view) {
 
+
         if(view.getId() == btnSimpanDataDiri.getId()){
+            if (nisn != null) {
+                if (!nisn.equals(inputNISN.getText().toString())) {
+                    siswa.setNisn(inputNISN.getText().toString());
+                    dbSiswa.child("nisn").setValue(siswa.getNisn());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data NISN tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (namaLengkap != null) {
+                if (!namaLengkap.equals(inputNamalkp.getText().toString())) {
+                    siswa.setNamaLengkap(inputNamalkp.getText().toString());
+                    dbSiswa.child("namaLengkap").setValue(siswa.getNamaLengkap());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Nama tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (agama != null) {
+                if (!agama.equals(inputAgama.getText().toString())) {
+                    siswa.setAgama(inputAgama.getText().toString());
+                    dbSiswa.child("agama").setValue(siswa.getAgama());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Agama tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (alamat != null) {
+                if (!alamat.equals(inputAlamat.getText().toString())) {
+                    siswa.setAlamat(inputAlamat.getText().toString());
+                    dbSiswa.child("alamat").setValue(siswa.getAlamat());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (asalKota != null) {
+                if (!asalKota.equals(inputKota.getText().toString())) {
+                    siswa.setAsalKota(inputKota.getText().toString());
+                    dbSiswa.child("asalKota").setValue(siswa.getAsalKota());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Asal Kota tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (asalSekolah != null) {
+                if (!asalSekolah.equals(inputAsalSekolah.getText().toString())) {
+                    siswa.setAsalSekolak(inputAsalSekolah.getText().toString());
+                    dbSiswa.child("asalSekolak").setValue(siswa.getAsalSekolak());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Asal Sekolah tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (jenisKelamin != null) {
+                if (!jenisKelamin.equals(inputjenis.getText().toString())) {
+                    siswa.setJenisKelamin(inputjenis.getText().toString());
+                    dbSiswa.child("jenisKelamin").setValue(siswa.getJenisKelamin());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Jenis Kelamin tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (tempatLahir != null) {
+                if (!tempatLahir.equals(inputTempatLahir.getText().toString())) {
+                    siswa.setTempatLahir(inputTempatLahir.getText().toString());
+                    dbSiswa.child("tempatLahir").setValue(siswa.getTempatLahir());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Tempat Lahir tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
+            if (tglLahir != null) {
+                if (!tglLahir.equals(inputTanggalLahir.getText().toString())) {
+                    siswa.setTglLahir(inputTanggalLahir.getText().toString());
+                    dbSiswa.child("tglLahir").setValue(siswa.getTglLahir());
+                    Toast.makeText(this, "Data diri berhasil terupdate", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "Data Tanggal Lahir tidak boleh kosong", Toast.LENGTH_SHORT).show();
+            }
 
-            uploadPicture();
+            if (nisn == null && namaLengkap == null && agama == null && alamat == null && asalKota == null
+                    && asalSekolah == null && jenisKelamin == null && tempatLahir == null && tglLahir == null){
 
-            siswa.setNisn(inputNISN.getText().toString());
-            siswa.setNamaLengkap(inputNamalkp.getText().toString());
-            siswa.setJenisKelamin(inputjenis.getText().toString());
-            siswa.setTglLahir(inputTanggalLahir.getText().toString());
-            siswa.setTempatLahir(inputTempatLahir.getText().toString());
-            siswa.setAgama(inputAgama.getText().toString());
-            siswa.setAlamat(inputAlamat.getText().toString());
-            siswa.setAsalKota(inputKota.getText().toString());
-            siswa.setAsalSekolak(inputAsalSekolah.getText().toString());
+                uploadPicture();
+
+                siswa.setNisn(inputNISN.getText().toString());
+                siswa.setNamaLengkap(inputNamalkp.getText().toString());
+                siswa.setJenisKelamin(inputjenis.getText().toString());
+                siswa.setTglLahir(inputTanggalLahir.getText().toString());
+                siswa.setTempatLahir(inputTempatLahir.getText().toString());
+                siswa.setAgama(inputAgama.getText().toString());
+                siswa.setAlamat(inputAlamat.getText().toString());
+                siswa.setAsalKota(inputKota.getText().toString());
+                siswa.setAsalSekolak(inputAsalSekolah.getText().toString());
 
 
-            dbSiswa.child(userSiswa.getUid()).setValue(siswa).addOnSuccessListener(addNilai -> {
-                Toast.makeText(this, "Data berhasil tersimpan", Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(failed -> {
-                Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
-            });
+                dbSiswa.child(userSiswa.getUid()).setValue(siswa).addOnSuccessListener(addNilai -> {
+                    Toast.makeText(this, "Data berhasil tersimpan", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(failed -> {
+                    Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+
+
 
             finish();
         }

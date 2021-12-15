@@ -188,11 +188,15 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
                 siswa.setRerataUN(Integer.parseInt(inputMathUN.getText().toString()), Integer.parseInt(inputBindoUN.getText().toString()),
                         Integer.parseInt(inputIpaUN.getText().toString()));
                 dbSiswa.child("rerataUN").setValue(siswa.getRerataUN());
-            } if (mathUS != null && bindoUS != null && ipaUS != null && ipsUS != null) {
+            }
+            if (mathUS != null && bindoUS != null && ipaUS != null && ipsUS != null) {
                 siswa.setRerataUS(Integer.parseInt(inputMathUS.getText().toString()), Integer.parseInt(inputBindoUS.getText().toString()),
                         Integer.parseInt(inputIpaUS.getText().toString()), Integer.parseInt(inputIpsUS.getText().toString()));
                 dbSiswa.child("rerataUS").setValue(siswa.getRerataUS());
-            } else {
+            }
+            if ((mathUN == null && bindoUN == null && ipaUN == null && mathUS == null &&
+                    bindoUS == null&& ipaUS == null && ipsUS == null)) {
+
                 uploadPicture();
 
                 siswa.setNilaiMathUN(Integer.parseInt(inputMathUN.getText().toString()));
@@ -213,7 +217,6 @@ public class inputNilai extends AppCompatActivity implements View.OnClickListene
                     Toast.makeText(this, "Error: " + failed.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
-
             finish();
         }
 

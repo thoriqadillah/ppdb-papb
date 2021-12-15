@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Sistemnya nanti setelah daftar lewat firebase auth nanti ada id nya disitu. Nah, id tsb jadi id di realtime db nya.
     // Jadi, kalo nanti mau update data, ngambil id siswanya dari FirebaseAuth.getCurrentUser().getUid() (mungkin). Habis itu update deh
     // Challange lain mungkin join data siswa ke nilai sih. Semangat ndes
-    
+
     public void register(Siswa siswa) {
         firebaseAuth.createUserWithEmailAndPassword(siswa.getEmail(), siswa.getPassword()).addOnCompleteListener(register -> {
             if (register.isSuccessful()) {

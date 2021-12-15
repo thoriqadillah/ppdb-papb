@@ -22,6 +22,7 @@ import java.util.Collections;
 public class PengumumanActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
     DatabaseReference dbReference = db.getReference(Siswa.class.getSimpleName());
+    DatabaseReference dbReference2 = db.getReference(Siswa.class.getSimpleName()).child("Nilai");
 
     ArrayList<Siswa> listSiswa;
     Adapter adapter;
