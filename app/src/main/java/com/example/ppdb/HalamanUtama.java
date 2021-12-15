@@ -55,7 +55,7 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.idLogout:
-                new AlertDialog.Builder(this, R.style.AlertDialogCustom)
+                new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_logout)
                         .setTitle("PPDB SMA PAPB")
                         .setMessage("Apakah kamu yakin?")
