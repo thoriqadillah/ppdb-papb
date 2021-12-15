@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class PengumumanActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://ppdb-papb-1a3c3-default-rtdb.asia-southeast1.firebasedatabase.app");
     DatabaseReference dbReference = db.getReference(Siswa.class.getSimpleName());
+    DatabaseReference dbReference2 = db.getReference(Siswa.class.getSimpleName()).child("Nilai");
 
     ArrayList<Siswa> list;
     Adapter adapter;
@@ -52,6 +53,7 @@ public class PengumumanActivity extends AppCompatActivity {
                     Siswa mhs = dataSnapshot1.getValue(Siswa.class);
                     list.add(mhs);
                 }
+                for (list : )
                 adapter.notifyDataSetChanged();
             }
 

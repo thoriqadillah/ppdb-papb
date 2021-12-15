@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HalamanUtama extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private DrawerLayout drawer;
-    Button idLogout, btnDataDiri, btnPengumuman, btnNilai;
+    Button idLogout, btnDataDiri, btnDaftarSiswa, btnNilai;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +38,11 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
 
         btnDataDiri = findViewById(R.id.btnDataDiri);
         btnNilai = findViewById(R.id.btnNilai);
-        btnPengumuman = findViewById(R.id.btnPengumuman);
+        btnDaftarSiswa = findViewById(R.id.btnDaftarSiswa);
 
         btnDataDiri.setOnClickListener(this);
         btnNilai.setOnClickListener(this);
-        btnPengumuman.setOnClickListener(this);
+        btnDaftarSiswa.setOnClickListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
