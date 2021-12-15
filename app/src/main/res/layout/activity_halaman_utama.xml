@@ -53,18 +53,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnPengumuman"
-            android:layout_width="369dp"
-            android:layout_height="79dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#3B82F6"
-            android:text="PENGUMUMAN"
-            android:textColor="#FFFFFF"
-            app:cornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnDaftarSiswa" />
 
         <Button
             android:id="@+id/btnNilai"
@@ -80,12 +68,12 @@
             app:layout_constraintStart_toEndOf="@+id/btnDataDiri" />
 
         <Button
-            android:id="@+id/btnDaftarSiswa"
+            android:id="@+id/btnPengumuman"
             android:layout_width="369dp"
             android:layout_height="79dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#3B82F6"
-            android:text="DAFTAR SISWA"
+            android:text="PENGUMUMAN"
             android:textColor="#FFFFFF"
             app:cornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="@+id/btnNilai"

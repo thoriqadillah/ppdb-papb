@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ppdb">
         <activity
-            android:name=".PengumumanLolos"
-            android:exported="true" />
-        <activity
             android:name=".PengumumanActivity"
             android:exported="true" />
         <activity
