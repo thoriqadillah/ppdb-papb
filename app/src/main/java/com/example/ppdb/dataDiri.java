@@ -37,6 +37,7 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
     EditText inputNISN, inputNamalkp, inputTempatLahir, inputTanggalLahir, inputjenis, inputAgama, inputKota, inputAsalSekolah, inputAlamat;
     TextView tvFoto;
     Button btnImgFoto, btnSimpanDataDiri;
+
     private static final int RC_FOTO = 0;
     public Uri imageUriFoto;
 
@@ -65,6 +66,8 @@ public class dataDiri extends AppCompatActivity  implements View.OnClickListener
         inputAgama = findViewById(R.id.inputAgama);
         inputKota = findViewById(R.id.inputKota);
         inputAsalSekolah = findViewById(R.id.inputAsalSekolah);
+
+
 
         btnImgFoto = findViewById(R.id.btnImgFoto);
         btnImgFoto.setOnClickListener(this);
