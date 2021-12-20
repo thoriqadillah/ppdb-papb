@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,6 +48,8 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRefProfile;
 
+    SwipeRefreshLayout refreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,46 +73,25 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
         btnNilai.setOnClickListener(this);
         btnPengumuman.setOnClickListener(this);
 
+        storageRefProfile = storage.getReference(userSiswa.getUid() + "/Foto/" + userSiswa.getUid());
+
+        refreshLayout = findViewById(R.id.refresh);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getProfilePic();
+                refreshLayout.setRefreshing(false);
+            }
+        });
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        storageRefProfile = storage.getReference(userSiswa.getUid() + "/Foto/" + userSiswa.getUid());
-
-        storageRefProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                String imageURL = uri.toString();
-                Glide.with(getApplicationContext()).load(imageURL).into(imgProfile);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-            }
-        });
-
-
-//        try {
-//            File localfile = File.createTempFile("tempfileProfile", ".jpg");
-//            storageRefProfile.getFile(localfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-//                    Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
-//                    imgProfile.setImageBitmap(bitmap);
-//
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//
-//                }
-//            });
-//        } catch (IOException e){
-//
-//        }
+        getProfilePic();
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -134,10 +116,6 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
                             }
                         })
                         .show();
-
-
-
-
                 break;
             case R.id.idDataDiri:
                 Intent intentDataDiri = new Intent(HalamanUtama.this, dataDiri.class);
@@ -171,5 +149,19 @@ public class HalamanUtama extends AppCompatActivity  implements NavigationView.O
         }
     }
 
+    private void getProfilePic() {
+        storageRefProfile.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                String imageURL = uri.toString();
+                Glide.with(getApplicationContext()).load(imageURL).into(imgProfile);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+    }
 
 }
