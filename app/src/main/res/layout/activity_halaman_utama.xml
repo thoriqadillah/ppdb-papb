@@ -79,6 +79,16 @@
             app:layout_constraintStart_toStartOf="@+id/btnDataDiri"
             app:layout_constraintTop_toBottomOf="@+id/btnDataDiri" />
 
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="141dp"
+            android:layout_height="134dp"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/user__1_" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
